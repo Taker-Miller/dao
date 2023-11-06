@@ -2,19 +2,16 @@ from Juego import Juego
 from DAO import DAO
 def registrar():
         print("Vas a registrar un Juego")
-        #Solicitar todo lo necesario al usuario
+        codigo = input("ingresa codigo")
         nombre = input("Ingrese nombre del juego: ")
         genero = input("Ingrese genero del juego: ")
         precio = int(input("Ingrese precio del juego: "))
-        #Crear un objeto
-        j = Juego(nombre, genero, precio)
-        #Enviar el objeto al DAO
-            #print("Entre al registro")
+        j = Juego(nombre, genero, precio, codigo)
         d = DAO()
         d.registrar_juego(j)
 
-#Recuperar un juego        
-def recuperar():    #Hay que usar un identificador unico y autoincremental y agregar otro atributo unico
+       
+def recuperar():    
     print("Buscando juego...")
     codigo = input("Ingrese codigo del juego a buscar: ")
     d = DAO()
