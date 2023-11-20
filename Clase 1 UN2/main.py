@@ -22,10 +22,28 @@ def recuperar():
         print("No se encuentra el juego")
 
 def eliminar():
-    pass
+        j = buscar()
+        if j != None:
+        opcion = input("Desea eliminar a este juego(s/n): ")
+        if opcion.lower() == "s":
+            d = DAO()
+            d.eliminar_juego(j.get_id())
+        else:
+            print("No se ha eliminado el juego")
 
 def modificar():
-    pass
+        j = buscar()
+        if j != None:
+        codigo = recibir_valor("codigo",j.get_codigo())
+        j.set_codigo(codigo)
+        nombre = recibir_valor("nombre",a.get_nombre())
+        j.set_nombre(nombre)
+        precio = recibir_valor("precio",a.get_precio())
+        j.set_precio(float(precio))
+        genero = (recibir_valor("genero",a.get_genero()))
+        j.set_genero(genero)
+        d = DAO()
+        d.modificar_animal(j)
 
 def mostrar_todo():
     pass
