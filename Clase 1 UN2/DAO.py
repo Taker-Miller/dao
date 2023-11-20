@@ -29,3 +29,18 @@ class DAO:
         self.__cerrar()
         j = Juego(respuesta[1],respuesta[2],respuesta[3],respuesta[4],respuesta[0])
         return j
+        
+def modificar_juego(self,j:Juego):
+        self.__conectar()
+        sql = "UPDATE juego SET codigo = %s, nombre = %s, genero = %s, precio = %s WHERE IDanimal = %s "
+        values = (j.get_codigo(), j.get_nombre(), j.get_genero(), j.get_precio())
+        self.__cursor.execute(sql,values)
+        self.__cerrar()
+
+
+ def eliminar_juego(self,id:int):
+        self.__conectar()
+        sql = "DELETE FROM juego WHERE IDanimal = %s"
+        values = (id,)
+        self.__cursor.execute(sql,values)
+        self.__cerrar()
